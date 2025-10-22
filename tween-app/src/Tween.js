@@ -1,7 +1,4 @@
-/**
- * easing functions
- */
-const easings = {
+export const Easings = {
   // Linear
   linear: (t) => t,
 
@@ -69,31 +66,10 @@ const easings = {
       : (Math.pow(2, -20 * t + 10) * Math.sin((20 * t - 11.125) * c5)) / 2 + 1;
   },
 };
-
 export class Tween {
-  constructor() {}
-
-  /**
-   * @typedef {Object.<string, number>} DataSet
-   *
-   * @param {{
-   *   from: DataSet,
-   *   to: DataSet,
-   *   duration: number,
-   * easing?: (
-   *     'linear' |
-   *     'easeInQuad'  | 'easeOutQuad'  | 'easeInOutQuad'   |
-   *     'easeInCubic' | 'easeOutCubic' | 'easeInOutCubic'  |
-   *     'easeInQuart' | 'easeOutQuart' | 'easeInOutQuart'  |
-   *     'easeInQuint' | 'easeOutQuint' | 'easeInOutQuint'  |
-   *     'easeInSine'  | 'easeOutSine'  | 'easeInOutSine'   |
-   *     'easeInCirc'  | 'easeOutCirc'  | 'easeInOutCirc'   |
-   *     'easeInElastic' | 'easeOutElastic' | 'easeInOutElastic'
-   *   ),
-   *   onUpdate?: (data: DataSet) => void,
-   *   onComplete?: (data: DataSet) => void
-   * }} inputs
-   */
+  constructor() {
+    this.animationFrame = null;
+  }
 
   animate({ from, to, duration, easing, onUpdate, onComplete }) {
     const start = performance.now();
@@ -111,7 +87,7 @@ export class Tween {
       for (const key in from) {
         const p = from[key];
         const r = to[key];
-        data[key] = p + (r - p) * easings[easing](t);
+        data[key] = p + (r - p) * Easings[easing](t);
       }
 
       onUpdate?.(data);

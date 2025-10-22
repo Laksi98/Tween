@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tween Circle Animation</title>
-    <style>
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background: #111;
-        margin: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tween Animation Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .circle {
+      width: 100px;
+      height: 100px;
+      background: #ff6f91;
+      margin: 50px auto;
+      border-radius: 0;
+      transition: background 0.3s;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Tween Button Easings Animation</h2>
+  <button id="startBtn">Start Animation</button>
+  <div class="circle"></div>
 
-      .circle {
-        width: 100px;
-        height: 100px;
-        background-color: rgb(220, 54, 54);
-        border-radius: 0px;
-        margin: 50px auto;
-        transition: background-color 0.3s;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="circle"></div>
-    <script type="module" src="./index.js"></script>
-  </body>
+  <script type="module" src="./index.js"></script>
+</body>
 </html>
